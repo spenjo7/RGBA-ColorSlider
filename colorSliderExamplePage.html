@@ -1,0 +1,116 @@
+<html>
+<head>
+<style>
+h1{
+	text-size: 450%;
+}
+
+body{
+	background-color:black;
+}
+
+.flexH{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.grid{
+	display: inline-grid;
+	width: 98vw;
+	height: 75vh;
+	grid-template-columns: repeat(4, 1fr);
+	margin-left-right: 1vw;
+	margin-top-bottom: 1vh;
+}
+
+.grid > div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.blktxt{
+	color:black;
+}
+
+.grytxt{
+	color: grey;
+}
+
+.whitxt{
+	color: white;
+}
+</style>
+</head>
+<body>
+<div class="grid">
+	<div class="bkg1" id="trgt1">
+		<h1 class="txt2">TEST</h1>
+		<h1 class="txt3">TEST</h1>
+		<h1 class="blktxt">Black</h1>
+		<h1 class="grytxt">Grey</h1>
+		<h1 class="whitxt">White</h1>
+	</div>
+	<div class="bkg2" id="trgt2">
+		<h1 class="txt1">TEST</h1>
+		<h1 class="txt3">TEST</h1>
+		<h1 class="blktxt">Black</h1>
+		<h1 class="grytxt">Grey</h1>
+		<h1 class="whitxt">White</h1>
+	</div>
+	<div class="bkg3" id="trgt3">
+		<h1 class="txt1">TEST</h1>
+		<h1 class="txt2">TEST</h1>
+		<h1 class="blktxt">Black</h1>
+		<h1 class="grytxt">Grey</h1>
+		<h1 class="whitxt">White</h1>
+	</div>
+	<div class="bkg1">
+		<h1 class="txt2">TEST</h1>
+		<h1 class="txt3">TEST</h1>
+		<h1 class="blktxt">Black</h1>
+		<h1 class="grytxt">Grey</h1>
+		<h1 class="whitxt">White</h1>
+	</div>
+</div>
+<div class="flexH">
+<h1>
+<span id="out1" class="whitxt"></span>|
+<span  id="out2" class="whitxt"></span>|
+<span  id="out3" class="whitxt"></span>
+</h1>
+</div>
+<script src="colorSlider.js"></script>
+<script>
+
+
+new RGBASlider( document.getElementById('trgt1'), {
+	backgroundClass: "bkg1",
+	textClass: "txt1",
+	outputTarget: document.getElementById('out1'),
+	outputClass: "txt1",
+	presets:[ 92, 0, 135, 100]
+} ).init();
+
+new RGBASlider( document.getElementById('trgt2'), {
+	backgroundClass: "bkg2",
+	textClass: "txt2",
+	outputTarget: document.getElementById('out2'),
+	outputClass: "txt2",
+	presets:[ 7, 140, 163, 100]
+} ).init();
+
+new RGBASlider( document.getElementById('trgt3'), {
+	backgroundClass: "bkg3",
+	textClass: "txt3",
+	outputTarget: document.getElementById('out3'),
+	outputClass: "txt3",
+	presets:[ 255, 134, 20,100]
+} ).init();
+
+</script>
+</body>
+</html>
