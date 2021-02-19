@@ -2,6 +2,8 @@
 Use sliders to modify the RGBA Text Color or Background Color of HTML Elements. Useful for theme design.
 Created by Jon Spencer
 
+![ScreenShot](Preview.png)
+
 VERSION HISTORY:
 V1.0 2020-05-21 Initial Creation
 
