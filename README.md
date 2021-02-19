@@ -1,49 +1,47 @@
 # RGBA-ColorSlider
 Use sliders to modify the RGBA Text Color or Background Color of HTML Elements. Useful for theme design.
-Created by Jon Spencer
+- Can be used locally, no server connections or API calls required. 
+- Includes a pre-made .html file to use/test the functionality. 
 
 ![ScreenShot](Preview.png)
 
-VERSION HISTORY:
-V1.0 2020-05-21 Initial Creation
-
-OVERVIEW:
+## OVERVIEW:
 The purpose of this tool is to allow for dynamically adjusting colors on a Web-Page in real time. The initial use case of this was to be able to easily compare and tweak potential color combinations. Multiple instances of the tool can be used together to allow any number of elements to be independently adjusted. Likewise, each set of sliders can be adjust a separate Text Color and Background Color class simultaneously. The numerical RGBA values can optionally be displayed on screen for reference purposes.
 
 Naturally, each of sliders in a set will control the "R", "G", "B" or "A" value (in that order) for the CSS class. 
 
 IMPORTANT NOTE: The sliders manually override the values of the affected target elements, they do not actually update the CSS Classes directly. As such, I don’t recommend linking the sliders to CSS classes which have other uses. Additionally, the targeted CSS classes doesn't actually need to exist in the stylesheet/inline styling; they just need to be assigned to the intended target HTML element(s).
 
-USE:
+## USE:
 The bulk of the script defines the custom "RGBASlider" JavaScript class. The Class must be instantiated with a few parameters and then initiated. That process will inserts a functioning set of sliders into the target HTML element and no other back end work is required.
 
-FILES:
+## FILES:
 	-- colorSlider.js					: This includes the JavaScript for the RGBASlider() class. 
 										Externaly Reference the file using <script src="colorSlider.js"></script>  
 										or copy the contents directly into an inline <script></script> Element.
   
 	-- colorSliderExamplePage.html		: This is an example HTML page which externally references the main colorSlider.js file
-
-CONSTRUCTOR:
+````javascript
+// CONSTRUCTOR:
 	RGBASlider(parent, opts);
 	
-		example 1:
+//		example 1:
 			new RGBASlider( document.getElementById("foo"), {
 				backgroundClass: "bar",
 				outputTarget: document.getElementById("oof"),
 				textClass: "baz",
 				presets:[ 123, 45, 67, 89 ]
-			});
+			})
 		
-		example 2: 
+//		example 2: 
 			const myOpts={
 						backgroundClass: "bar",
 						outputClass: "bat",
 						textClass: "baz",
 						presets:[ 98, 67, 54, 32 ]
 					}
-			new RGBASlider( document.getElementById("foo"), myOpts ).init();
-
+			new RGBASlider( document.getElementById("foo"), myOpts ).init()
+````
 CONTRUCTOR-ARGUMENTS:	
 	parent  - (Required) < Type: an HTML Element > 
 	This parameter identifies the HTML element to which the sliders will be appended upon instantiation.
@@ -95,3 +93,9 @@ CONTRUCTOR-INSTANCE METHODS:
 	- Initializes an instance of the Class after it's instantiation. The initialization event creates the slider HTML <input> Elements and append them to the instance's parent element. These sliders are sets reflect the RGBA numbers from the opts.preset argument or the default values. The initialization also adds an event listener to each of the sliders which calculates the new RBGA values when any of the sliders are moved and updates the CSS Classes and Output text according to the Instances options. Finally the functions which the event listener calls upon is triggered once so that the CSS Colors and Output text match the Instance's stored color value even before the sliders are ever used. 
 	
 			example: new RGBASlider( foo, bar ).init();
+
+## VERSION HISTORY:
+[1.0.0] - 2020-05-21: Initial Creation
+
+## Author
+Jon Spencer (c) 2020
